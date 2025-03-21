@@ -85,3 +85,11 @@ middle_entries = []
 high_entries = []
 
 add_teacher_entry()
+#Bottoni aggiungi docente e orario
+ttk.Button(root, text="Aggiungi Docente", command=add_teacher_entry).grid(row=100, column=0, columnspan=2)
+ttk.Button(root, text="Genera Orario", command=display_schedule).grid(row=100, column=2, columnspan=2)
+
+result_text = tk.Text(root, height=20, width=60)
+result_text.grid(row=101, column=0, columnspan=4)
+
+root.mainloop()
