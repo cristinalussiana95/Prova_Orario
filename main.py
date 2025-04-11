@@ -1,6 +1,7 @@
 import random
 import tkinter as tk
 from tkinter import ttk
+import csv
 
 #vincoli giorni e orari
 def generate_schedule(teachers):
@@ -57,6 +58,15 @@ def display_schedule():
             for slot in slots:
                 result_text.insert(tk.END, f"    - {slot}\n")
         result_text.insert(tk.END, "\n")
+    
+    import csv
+    with open("orario_generato.csv", "w", newline='', encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["Docente", "Giorno", "Orario"])
+        for teacher, days in schedule.items():
+            for day, slots in days.items():
+                for slot in slots:
+                    writer.writerow([teacher, day, slot])
 
 #aggiungere docente
 def add_teacher_entry():
